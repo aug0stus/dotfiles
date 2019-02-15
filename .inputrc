@@ -1,0 +1,13 @@
+$include /etc/inputrc
+
+#colors the completion lists' output
+set colored-stats On
+
+#ignores case when doing completing
+set completion-ignore-case On
+
+#if there is more than one possibily, will show all
+set show-all-if-ambiguous On
+
+#if after [filename.length - value] is typed, perform ellipsis 
+set completion-prefix-display-length 3
