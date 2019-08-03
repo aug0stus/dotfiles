@@ -1,0 +1,5 @@
+#default VIM as editor
+core.editor=vim
+
+#convert lf to crlf during git operations.
+core.autocrlf=true
