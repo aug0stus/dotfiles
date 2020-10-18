@@ -1,0 +1,42 @@
+set drawbox
+set shell powershell.exe
+set previewer D:\\repositories\\dotfiles\\lf\\res\\preview.cmd
+
+map e $nvim.exe $env:f.replace('\','\\')
+map w $powershell.exe
+
+cmd fzf_f ${{ 
+
+  $res = Get-ChildItem . -Recurse -Attributes !Directory | Invoke-Fzf 
+
+  if ($res) {
+
+    $res = $res.replace('\','\\')
+
+    $cmd = "select"
+
+    Start-Process lf.exe -ArgumentList "-remote `"send $ENV:id $cmd $res`""
+
+  }
+
+
+}}
+
+cmd fzf_d ${{
+
+  $res = Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf 
+
+  if ($res) {
+
+    $res = $res.replace('\','\\')
+
+    $cmd = "cd"
+
+    Start-Process lf.exe -ArgumentList "-remote `"send $ENV:id $cmd $res`""
+
+  }
+
+}}
+
+map f :fzf_f
+map F :fzf_d
