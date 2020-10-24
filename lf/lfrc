@@ -7,15 +7,23 @@ map w $powershell.exe
 
 cmd fzf_f ${{ 
 
+  sleep 2
+
   $res = Get-ChildItem . -Recurse -Attributes !Directory | Invoke-Fzf 
+
+  $res
+
+  sleep 3
 
   if ($res) {
 
-    $res = $res.replace('\','\\')
+    $res = $res.replace('\','\\').replace(' ', '\ ')
 
     $cmd = "select"
 
     Start-Process lf.exe -ArgumentList "-remote `"send $ENV:id $cmd $res`""
+
+    sleep 5
 
   }
 
