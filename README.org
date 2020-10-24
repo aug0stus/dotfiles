@@ -8,6 +8,12 @@ This is a safe space for my personal config files and their friends to print in 
 
 I use soft links. 
 
-#+begin_src
-New-Item -Path $(Read-Host "This is a prompt for where the link should be") -ItemType SymbolicLink -Value $(Read-Host "This is a prompt for where the link should point to")
-#+end_src
+#+NAME: Windows
+#+BEGIN_SRC powershell
+New-Item -Path 'replaceme-0' -ItemType SymbolicLink -Value 'replaceme-1'
+#+END_SRC
+
+#+NAME: Linux
+#+BEGIN_SRC bash
+ln -s 'replaceme-0' 'replaceme-1'
+#+END_SRC
