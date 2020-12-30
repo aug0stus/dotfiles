@@ -11,8 +11,14 @@ Remove-Item alias:\ls -ErrorAction SilentlyContinue; function ls() { Get-ChildIt
 # use curl.exe rather than Invoke-WebRequest
 Remove-Item alias:\curl -ErrorAction SilentlyContinue
 
-# get rid of that annoying snap assist
+# get rid of snap assist
 Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'SnapAssist' -value 0 -Type DWORD
+
+# get rid of the Cortana button on the taskbar
+Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowCortanaButton' -value 0 -Type DWORD
+
+# get rid of the Task View button on the taskbar
+Set-Itemproperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'ShowTaskViewButton' -value 0 -Type DWORD
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
