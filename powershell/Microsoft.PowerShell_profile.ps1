@@ -1,4 +1,4 @@
-#configure Readline features.
+# configure Readline features.
 Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
