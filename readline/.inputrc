@@ -11,3 +11,6 @@ set show-all-if-ambiguous On
 
 #if after [filename.length - value] is typed, perform ellipsis 
 set completion-prefix-display-length 3
+
+# disable bell sound
+set bell-style none
